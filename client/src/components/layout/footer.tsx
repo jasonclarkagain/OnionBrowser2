@@ -33,22 +33,22 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Education</h4>
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>
-                <Link href="/education">
+                <Link href="/privacy-fundamentals">
                   <span className="cursor-pointer hover:text-primary transition-colors">Privacy Fundamentals</span>
                 </Link>
               </li>
               <li>
-                <Link href="/education">
+                <Link href="/tor-network-guide">
                   <span className="cursor-pointer hover:text-primary transition-colors">Tor Network Guide</span>
                 </Link>
               </li>
               <li>
-                <Link href="/education">
+                <Link href="/opsec-best-practices">
                   <span className="cursor-pointer hover:text-primary transition-colors">OpSec Best Practices</span>
                 </Link>
               </li>
               <li>
-                <Link href="/education">
+                <Link href="/interactive-tutorials">
                   <span className="cursor-pointer hover:text-primary transition-colors">Interactive Tutorials</span>
                 </Link>
               </li>
@@ -70,12 +70,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools">
+                <Link href="/tool-recommendations">
                   <span className="cursor-pointer hover:text-primary transition-colors">Tool Recommendations</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tools">
+                <Link href="/setup-guides">
                   <span className="cursor-pointer hover:text-primary transition-colors">Setup Guides</span>
                 </Link>
               </li>
@@ -87,17 +87,17 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Contact & Support</h4>
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>
-                <Link href="/contact">
+                <Link href="/community-forum">
                   <span className="cursor-pointer hover:text-primary transition-colors">Community Forum</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
+                <Link href="/support-center">
                   <span className="cursor-pointer hover:text-primary transition-colors">Support Center</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
+                <Link href="/feedback">
                   <span className="cursor-pointer hover:text-primary transition-colors">Feedback</span>
                 </Link>
               </li>

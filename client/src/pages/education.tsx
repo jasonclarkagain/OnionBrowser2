@@ -137,18 +137,20 @@ export default function Education() {
                           </div>
                         </div>
                         
-                        <Button 
-                          className="w-full"
-                          style={{ 
-                            backgroundColor: isCompleted 
-                              ? "var(--dark-green)" 
-                              : "var(--matrix-green)",
-                            color: "var(--cyber-black)"
-                          }}
-                        >
-                          <Play className="w-4 h-4 mr-2" />
-                          {isCompleted ? "Review Course" : isInProgress ? "Continue Learning" : "Start Course"}
-                        </Button>
+                        <Link href={course.id === 1 ? "/privacy-fundamentals" : course.id === 2 ? "/tor-network-guide" : "/opsec-best-practices"}>
+                          <Button 
+                            className="w-full"
+                            style={{ 
+                              backgroundColor: isCompleted 
+                                ? "var(--dark-green)" 
+                                : "var(--matrix-green)",
+                              color: "var(--cyber-black)"
+                            }}
+                          >
+                            <Play className="w-4 h-4 mr-2" />
+                            {isCompleted ? "Review Course" : isInProgress ? "Continue Learning" : "Start Course"}
+                          </Button>
+                        </Link>
                       </div>
                     );
                   })}
