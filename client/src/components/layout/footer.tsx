@@ -115,9 +115,21 @@ export default function Footer() {
           style={{ borderColor: "var(--cyber-border)" }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-              © 2024 PrivacyGuard. All rights reserved. Built for privacy education.
-            </p>
+            <div className="text-sm" style={{ color: "var(--text-secondary)" }}>
+              <p>© 2024 PrivacyGuard. All rights reserved. Built for privacy education.</p>
+              <p className="mt-2">
+                Made with <span style={{ color: "var(--matrix-green)" }}>&lt;3</span> by{" "}
+                <a 
+                  href="https://jason-clark.org" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:underline transition-colors duration-200"
+                  style={{ color: "var(--matrix-green)" }}
+                >
+                  Jason Clark
+                </a>
+              </p>
+            </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a 
                 href="#" 
