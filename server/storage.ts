@@ -4,6 +4,8 @@ import {
   type PrivacyAssessment, type InsertPrivacyAssessment, type PrivacyTool, type InsertPrivacyTool,
   type ProxyLog, type InsertProxyLog, type ContactMessage, type InsertContactMessage
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, count, avg } from "drizzle-orm";
 
 export interface IStorage {
   // User methods
@@ -305,4 +307,149 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+// DatabaseStorage implementation
+export class DatabaseStorage implements IStorage {
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async getAllCourses(): Promise<Course[]> {
+    return await db.select().from(courses);
+  }
+
+  async getCourseById(id: number): Promise<Course | undefined> {
+    const [course] = await db.select().from(courses).where(eq(courses.id, id));
+    return course || undefined;
+  }
+
+  async createCourse(insertCourse: InsertCourse): Promise<Course> {
+    const [course] = await db
+      .insert(courses)
+      .values(insertCourse)
+      .returning();
+    return course;
+  }
+
+  async getUserProgress(userId: number): Promise<UserProgress[]> {
+    return await db.select().from(userProgress).where(eq(userProgress.userId, userId));
+  }
+
+  async updateUserProgress(insertProgress: InsertUserProgress): Promise<UserProgress> {
+    // Check if progress already exists
+    const existing = await db.select()
+      .from(userProgress)
+      .where(eq(userProgress.userId, insertProgress.userId!))
+      .where(eq(userProgress.courseId, insertProgress.courseId!));
+
+    if (existing.length > 0) {
+      // Update existing progress
+      const [updated] = await db
+        .update(userProgress)
+        .set(insertProgress)
+        .where(eq(userProgress.id, existing[0].id))
+        .returning();
+      return updated;
+    } else {
+      // Create new progress
+      const [progress] = await db
+        .insert(userProgress)
+        .values(insertProgress)
+        .returning();
+      return progress;
+    }
+  }
+
+  async createPrivacyAssessment(insertAssessment: InsertPrivacyAssessment): Promise<PrivacyAssessment> {
+    const [assessment] = await db
+      .insert(privacyAssessments)
+      .values(insertAssessment)
+      .returning();
+    return assessment;
+  }
+
+  async getUserAssessments(userId?: number): Promise<PrivacyAssessment[]> {
+    if (userId) {
+      return await db.select().from(privacyAssessments).where(eq(privacyAssessments.userId, userId));
+    }
+    return await db.select().from(privacyAssessments);
+  }
+
+  async getAllPrivacyTools(): Promise<PrivacyTool[]> {
+    return await db.select().from(privacyTools);
+  }
+
+  async getToolsByCategory(category: string): Promise<PrivacyTool[]> {
+    return await db.select().from(privacyTools).where(eq(privacyTools.category, category));
+  }
+
+  async createPrivacyTool(insertTool: InsertPrivacyTool): Promise<PrivacyTool> {
+    const [tool] = await db
+      .insert(privacyTools)
+      .values(insertTool)
+      .returning();
+    return tool;
+  }
+
+  async logProxyRequest(insertLog: InsertProxyLog): Promise<ProxyLog> {
+    const [log] = await db
+      .insert(proxyLogs)
+      .values(insertLog)
+      .returning();
+    return log;
+  }
+
+  async getProxyStats(): Promise<{ totalRequests: number; averageResponseTime: number; successRate: number }> {
+    const [totalStats] = await db
+      .select({
+        totalRequests: count(proxyLogs.id),
+        averageResponseTime: avg(proxyLogs.responseTime)
+      })
+      .from(proxyLogs);
+
+    const [successStats] = await db
+      .select({
+        successRequests: count(proxyLogs.id)
+      })
+      .from(proxyLogs)
+      .where(eq(proxyLogs.success, true));
+
+    const totalRequests = Number(totalStats.totalRequests) || 0;
+    const averageResponseTime = Number(totalStats.averageResponseTime) || 0;
+    const successRequests = Number(successStats.successRequests) || 0;
+    const successRate = totalRequests > 0 ? (successRequests / totalRequests) * 100 : 0;
+
+    return {
+      totalRequests,
+      averageResponseTime: Math.round(averageResponseTime),
+      successRate: Math.round(successRate)
+    };
+  }
+
+  async createContactMessage(insertMessage: InsertContactMessage): Promise<ContactMessage> {
+    const [message] = await db
+      .insert(contactMessages)
+      .values(insertMessage)
+      .returning();
+    return message;
+  }
+
+  async getAllContactMessages(): Promise<ContactMessage[]> {
+    return await db.select().from(contactMessages);
+  }
+}
+
+export const storage = new DatabaseStorage();
