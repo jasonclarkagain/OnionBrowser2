@@ -132,23 +132,30 @@ export default function Footer() {
             </div>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <a 
-                href="#" 
+                href="https://github.com/jasonclarkagain" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
                 style={{ color: "var(--text-secondary)" }}
+                title="GitHub"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://x.com/jasonclarkagain" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:text-primary transition-colors"
                 style={{ color: "var(--text-secondary)" }}
+                title="X (Twitter)"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="mailto:jasonclarkagain@gmail.com" 
                 className="hover:text-primary transition-colors"
                 style={{ color: "var(--text-secondary)" }}
+                title="Email"
               >
                 <Mail className="h-5 w-5" />
               </a>
