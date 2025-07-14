@@ -9,6 +9,7 @@ import { ClipboardCheck, ChevronRight, ChevronLeft, Award, AlertCircle } from "l
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Link } from "wouter";
+import DataVisualization from "@/components/three/DataVisualization";
 
 interface Question {
   id: string;

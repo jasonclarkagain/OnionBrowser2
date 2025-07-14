@@ -2,6 +2,7 @@ import { Link, useLocation } from "wouter";
 import { Shield, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import FloatingLogo from "@/components/three/FloatingLogo";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -28,16 +29,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center space-x-3 cursor-pointer">
-              <div 
-                className="w-10 h-10 rounded-lg flex items-center justify-center"
-                style={{ backgroundColor: "var(--matrix-green)" }}
-              >
-                <Shield className="text-black text-lg" />
+              <div className="relative">
+                <FloatingLogo className="w-12 h-12" />
               </div>
               <div>
-                <h1 className="text-xl font-bold glow-text">PrivacyGuard</h1>
+                <h1 className="text-xl font-bold glow-text">
+                  Privacy<span style={{ color: "var(--matrix-green)" }}>Guard</span>
+                </h1>
                 <p className="text-xs" style={{ color: "var(--text-secondary)" }}>
-                  Privacy Education Platform
+                  Advanced Privacy Protection
                 </p>
               </div>
             </div>

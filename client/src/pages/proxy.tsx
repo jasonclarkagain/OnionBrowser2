@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { AlertTriangle, Globe, Info, Lock, Shield, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import NetworkVisualization from "@/components/three/NetworkVisualization";
 
 export default function Proxy() {
   const [targetUrl, setTargetUrl] = useState("");
@@ -220,6 +221,25 @@ export default function Proxy() {
                   </div>
                 </div>
               </div>
+            </CardContent>
+          </Card>
+
+          {/* Network Topology Visualization */}
+          <Card 
+            className="cyber-border mb-8"
+            style={{ backgroundColor: "var(--cyber-gray)" }}
+          >
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Shield style={{ color: "var(--matrix-green)" }} />
+                Network Routing Visualization
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
+                See how your traffic is routed through our secure proxy network to protect your privacy.
+              </p>
+              <NetworkVisualization className="border border-matrix-green/20 rounded-lg" />
             </CardContent>
           </Card>
 
