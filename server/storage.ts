@@ -117,6 +117,28 @@ export class MemStorage implements IStorage {
     const defaultTools: PrivacyTool[] = [
       {
         id: 1,
+        name: "PGP Encryption Tool",
+        description: "End-to-end encryption for secure communication and file protection using OpenPGP standards",
+        category: "encryption",
+        rating: 5,
+        features: ["End-to-end encryption", "Digital signatures", "Cross-platform compatibility", "Open source"],
+        setupGuide: "Generate key pairs, configure email client, and learn encryption best practices",
+        downloadUrl: "https://gnupg.org/download/",
+        isEssential: true
+      },
+      {
+        id: 2,
+        name: "AnonFiles",
+        description: "Anonymous file sharing service for secure document distribution without registration",
+        category: "file-sharing",
+        rating: 4,
+        features: ["No registration required", "Anonymous uploads", "Temporary links", "Multiple file formats"],
+        setupGuide: "Upload files anonymously and share secure links with recipients",
+        downloadUrl: "https://anonfiles.com",
+        isEssential: false
+      },
+      {
+        id: 3,
         name: "Tor Browser",
         description: "The official browser for accessing .onion sites and browsing with maximum anonymity",
         category: "browser",
@@ -127,7 +149,7 @@ export class MemStorage implements IStorage {
         isEssential: true
       },
       {
-        id: 2,
+        id: 4,
         name: "VPN Services",
         description: "Virtual private networks for encrypted internet connections and IP address masking",
         category: "vpn",
@@ -138,7 +160,7 @@ export class MemStorage implements IStorage {
         isEssential: false
       },
       {
-        id: 3,
+        id: 5,
         name: "Password Managers",
         description: "Secure storage and generation of unique passwords for all your online accounts",
         category: "password",

@@ -47,8 +47,8 @@ export default function Navbar() {
           <div className="hidden md:flex space-x-8">
             {navigation.map((item) => (
               <Link key={item.name} href={item.href}>
-                <a
-                  className={`transition-colors ${
+                <span
+                  className={`cursor-pointer transition-colors ${
                     isActive(item.href)
                       ? "text-primary glow-text"
                       : "text-gray-400 hover:text-primary"
@@ -60,7 +60,7 @@ export default function Navbar() {
                   }}
                 >
                   {item.name}
-                </a>
+                </span>
               </Link>
             ))}
           </div>
@@ -86,8 +86,8 @@ export default function Navbar() {
             <div className="flex flex-col space-y-2">
               {navigation.map((item) => (
                 <Link key={item.name} href={item.href}>
-                  <a
-                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  <span
+                    className={`block px-3 py-2 rounded-md text-base font-medium cursor-pointer transition-colors ${
                       isActive(item.href)
                         ? "bg-primary text-primary-foreground"
                         : "text-gray-400 hover:text-primary hover:bg-gray-800"
@@ -103,7 +103,7 @@ export default function Navbar() {
                     }}
                   >
                     {item.name}
-                  </a>
+                  </span>
                 </Link>
               ))}
             </div>

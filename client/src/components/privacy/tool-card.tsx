@@ -11,6 +11,8 @@ const categoryIcons = {
   messaging: MessageCircle,
   extension: Puzzle,
   os: Monitor,
+  encryption: Shield,
+  "file-sharing": Globe,
 };
 
 interface ToolCardProps {

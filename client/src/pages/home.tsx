@@ -104,9 +104,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Step-by-step guides covering everything from basic privacy concepts to advanced Tor network understanding.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>12 Courses Available</span>
-                </div>
+                <Link href="/education">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>3 Courses Available →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
             
@@ -128,9 +130,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Evaluate your current privacy setup and get personalized recommendations for improvement.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>Take Assessment</span>
-                </div>
+                <Link href="/assessment">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>Take Assessment →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
             
@@ -152,9 +156,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Access regular websites through our encrypted proxy service for enhanced privacy protection.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>Access Proxy</span>
-                </div>
+                <Link href="/proxy">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>Access Proxy →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
             
@@ -176,9 +182,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Complete guide to downloading, installing, and configuring Tor Browser for maximum privacy.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>Setup Guide</span>
-                </div>
+                <Link href="/tools">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>Setup Guide →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
             
@@ -200,9 +208,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Curated collection of privacy-focused applications, browser extensions, and security utilities.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>Browse Bolt</span>
-                </div>
+                <Link href="/tools">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>Browse Tools →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
             
@@ -224,9 +234,11 @@ export default function Home() {
                 <p className="mb-4" style={{ color: "var(--text-secondary)" }}>
                   Connect with privacy experts and fellow learners in our secure community forums.
                 </p>
-                <div className="flex items-center text-sm" style={{ color: "var(--matrix-green)" }}>
-                  <span>Join Community</span>
-                </div>
+                <Link href="/contact">
+                  <div className="flex items-center text-sm cursor-pointer hover:text-primary transition-colors" style={{ color: "var(--matrix-green)" }}>
+                    <span>Join Community →</span>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
           </div>

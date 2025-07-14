@@ -8,6 +8,7 @@ import { Progress } from "@/components/ui/progress";
 import { ClipboardCheck, ChevronRight, ChevronLeft, Award, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
+import { Link } from "wouter";
 
 interface Question {
   id: string;
@@ -276,15 +277,17 @@ export default function Assessment() {
                 >
                   Retake Assessment
                 </Button>
-                <Button 
-                  className="flex-1"
-                  style={{ 
-                    backgroundColor: "var(--matrix-green)",
-                    color: "var(--cyber-black)"
-                  }}
-                >
-                  View Privacy Tools
-                </Button>
+                <Link href="/tools">
+                  <Button 
+                    className="flex-1"
+                    style={{ 
+                      backgroundColor: "var(--matrix-green)",
+                      color: "var(--cyber-black)"
+                    }}
+                  >
+                    View Privacy Tools
+                  </Button>
+                </Link>
               </div>
             </CardContent>
           </Card>

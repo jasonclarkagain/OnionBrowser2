@@ -34,22 +34,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>
                 <Link href="/education">
-                  <a className="hover:text-primary transition-colors">Privacy Fundamentals</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Privacy Fundamentals</span>
                 </Link>
               </li>
               <li>
                 <Link href="/education">
-                  <a className="hover:text-primary transition-colors">Tor Network Guide</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Tor Network Guide</span>
                 </Link>
               </li>
               <li>
                 <Link href="/education">
-                  <a className="hover:text-primary transition-colors">OpSec Best Practices</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">OpSec Best Practices</span>
                 </Link>
               </li>
               <li>
                 <Link href="/education">
-                  <a className="hover:text-primary transition-colors">Interactive Tutorials</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Interactive Tutorials</span>
                 </Link>
               </li>
             </ul>
@@ -61,22 +61,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>
                 <Link href="/proxy">
-                  <a className="hover:text-primary transition-colors">Secure Web Proxy</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Secure Web Proxy</span>
                 </Link>
               </li>
               <li>
                 <Link href="/assessment">
-                  <a className="hover:text-primary transition-colors">Privacy Assessment</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Privacy Assessment</span>
                 </Link>
               </li>
               <li>
                 <Link href="/tools">
-                  <a className="hover:text-primary transition-colors">Tool Recommendations</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Tool Recommendations</span>
                 </Link>
               </li>
               <li>
                 <Link href="/tools">
-                  <a className="hover:text-primary transition-colors">Setup Guides</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Setup Guides</span>
                 </Link>
               </li>
             </ul>
@@ -88,22 +88,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm" style={{ color: "var(--text-secondary)" }}>
               <li>
                 <Link href="/contact">
-                  <a className="hover:text-primary transition-colors">Community Forum</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Community Forum</span>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="hover:text-primary transition-colors">Support Center</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Support Center</span>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="hover:text-primary transition-colors">Feedback</a>
+                  <span className="cursor-pointer hover:text-primary transition-colors">Feedback</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="hover:text-primary transition-colors">Privacy Policy</a>
+                <Link href="/privacy-policy">
+                  <span className="cursor-pointer hover:text-primary transition-colors">Privacy Policy</span>
                 </Link>
               </li>
             </ul>

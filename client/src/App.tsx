@@ -10,6 +10,7 @@ import Tools from "@/pages/tools";
 import Proxy from "@/pages/proxy";
 import Assessment from "@/pages/assessment";
 import Contact from "@/pages/contact";
+import PrivacyPolicy from "@/pages/privacy-policy";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 
@@ -25,6 +26,7 @@ function Router() {
           <Route path="/proxy" component={Proxy} />
           <Route path="/assessment" component={Assessment} />
           <Route path="/contact" component={Contact} />
+          <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route component={NotFound} />
         </Switch>
       </main>
