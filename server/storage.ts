@@ -8,10 +8,9 @@ import { db } from "./db";
 import { eq, count, avg } from "drizzle-orm";
 
 export interface IStorage {
-  // User methods
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
+  // User methods (for Replit Auth)
+  getUser(id: string): Promise<User | undefined>;
+  upsertUser(user: UpsertUser): Promise<User>;
 
   // Course methods
   getAllCourses(): Promise<Course[]>;
@@ -120,24 +119,24 @@ export class MemStorage implements IStorage {
       {
         id: 1,
         name: "PGP Encryption Tool",
-        description: "End-to-end encryption for secure communication and file protection using OpenPGP standards",
+        description: "Advanced PGP encryption and decryption tool for secure message and file protection",
         category: "encryption",
         rating: 5,
-        features: ["End-to-end encryption", "Digital signatures", "Cross-platform compatibility", "Open source"],
-        setupGuide: "Generate key pairs, configure email client, and learn encryption best practices",
-        downloadUrl: "https://gnupg.org/download/",
+        features: ["PGP key generation", "Message encryption/decryption", "File encryption", "Digital signatures"],
+        setupGuide: "Access the web-based tool, generate or import PGP keys, and start encrypting your messages and files",
+        downloadUrl: "https://pgp-encryption-tool.replit.app",
         isEssential: true
       },
       {
         id: 2,
         name: "AnonFiles",
-        description: "Anonymous file sharing service for secure document distribution without registration",
+        description: "Anonymous file sharing platform with encryption and automatic deletion for secure transfers",
         category: "file-sharing",
-        rating: 4,
-        features: ["No registration required", "Anonymous uploads", "Temporary links", "Multiple file formats"],
-        setupGuide: "Upload files anonymously and share secure links with recipients",
-        downloadUrl: "https://anonfiles.com",
-        isEssential: false
+        rating: 5,
+        features: ["Anonymous file uploads", "End-to-end encryption", "Auto-deletion", "No registration required"],
+        setupGuide: "Visit the platform, upload files anonymously, and share secure download links",
+        downloadUrl: "https://anonfiles-secure.replit.app",
+        isEssential: true
       },
       {
         id: 3,
@@ -309,20 +308,22 @@ export class MemStorage implements IStorage {
 
 // DatabaseStorage implementation
 export class DatabaseStorage implements IStorage {
-  async getUser(id: number): Promise<User | undefined> {
+  async getUser(id: string): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user || undefined;
+    return user;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user || undefined;
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
+  async upsertUser(userData: UpsertUser): Promise<User> {
     const [user] = await db
       .insert(users)
-      .values(insertUser)
+      .values(userData)
+      .onConflictDoUpdate({
+        target: users.id,
+        set: {
+          ...userData,
+          updatedAt: new Date(),
+        },
+      })
       .returning();
     return user;
   }
