@@ -1,0 +1,32 @@
+# ========================================
+# Use this template for ALL your other Replit projects
+# ========================================
+
+# Replace PROJECT_NAME with your actual project name
+# Example: pgp-encryption-tool, anonfiles-secure, etc.
+
+# 1. Create repository on GitHub:
+#    https://github.com/new
+#    Name: [PROJECT_NAME]
+#    Click "Create repository"
+
+# 2. In your Replit Shell, run:
+
+export PROJECT_NAME="your-project-name-here"
+
+git init
+git add .
+git commit -m "Initial commit: $PROJECT_NAME"
+git branch -M main
+git remote add origin https://github.com/jasonclarkagain/$PROJECT_NAME.git
+git push -u origin main
+
+# ========================================
+# Download ALL your projects at once:
+# ========================================
+
+# Option 1: Using GitHub CLI (install from https://cli.github.com)
+gh repo list jasonclarkagain --limit 100 --json name --jq '.[].name' | xargs -I {} gh repo clone jasonclarkagain/{}
+
+# Option 2: Manual cloning (one at a time)
+git clone https://github.com/jasonclarkagain/[PROJECT_NAME].git

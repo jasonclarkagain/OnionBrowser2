@@ -1,0 +1,33 @@
+# ========================================
+# Copy and paste these commands into your Shell
+# ========================================
+
+# 1. First, create the repository on GitHub:
+#    Go to: https://github.com/new
+#    Repository name: privacyguard
+#    Description: Privacy education platform with courses, tools, and secure proxy
+#    Public repository
+#    Do NOT initialize with README (we already have one)
+#    Click "Create repository"
+
+# 2. Then run these commands in your Replit Shell:
+
+git add .
+git commit -m "Initial commit: Privacy education platform with PostgreSQL and Three.js"
+git branch -M main
+git remote remove origin
+git remote add origin https://github.com/jasonclarkagain/privacyguard.git
+git push -u origin main
+
+# ========================================
+# After pushing, your project will be at:
+# https://github.com/jasonclarkagain/privacyguard
+# ========================================
+
+# To download this project anywhere:
+# git clone https://github.com/jasonclarkagain/privacyguard.git
+
+# To update after making changes:
+# git add .
+# git commit -m "Update: description of changes"
+# git push
